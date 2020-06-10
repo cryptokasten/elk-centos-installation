@@ -1,0 +1,48 @@
+#+TITLE: Elasticsearch installation
+#+OPTIONS: ^:nil
+#+PROPERTY: header-args:sh :session *shell elasticsearch-installation sh* :results silent raw
+#+PROPERTY: header-args:python :session *shell elasticsearch-installation python* :results silent raw
+
+** System environment
+
+
+- CentOS Linux release 8.1.1911 (Core)
+
+- OpenJDK Runtime Environment 18.9 (build 11.0.7+10-LTS)
+
+- Elasticsearch 7.7.1
+
+** Install java
+
+#+BEGIN_SRC sh
+yum install java-11-openjdk
+#+END_SRC
+
+** Import the Elasticsearch PGP Key
+
+#+BEGIN_SRC sh
+rpm --import https://artifacts.elastic.co/GPG-KEY-elasticsearch
+#+END_SRC
+
+** Add repository
+
+#+BEGIN_SRC conf :tangle etc/yum.repos.d/elasticsearch.repo
+[elasticsearch]
+name=Elasticsearch repository for 7.x packages
+baseurl=https://artifacts.elastic.co/packages/7.x/yum
+gpgcheck=1
+gpgkey=https://artifacts.elastic.co/GPG-KEY-elasticsearch
+enabled=0
+autorefresh=1
+type=rpm-md
+#+END_SRC
+
+** Install elasticsearch
+
+#+BEGIN_SRC sh
+sudo yum install --enablerepo=elasticsearch elasticsearch
+#+END_SRC
+
+** References
+
+- https://www.elastic.co/guide/en/elasticsearch/reference/7.7/rpm.html
