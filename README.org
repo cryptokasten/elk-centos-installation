@@ -49,6 +49,8 @@ sudo yum install --enablerepo=elasticsearch elasticsearch
 systemctl start elasticsearch
 #+END_SRC
 
+Elasticsearch will listen 127.0.0.1:9200.
+
 ** Install kibana
 
 #+BEGIN_SRC sh
@@ -60,6 +62,8 @@ sudo yum install --enablerepo=elasticsearch kibana
 #+BEGIN_SRC sh
 systemctl start kibana
 #+END_SRC
+
+Kibana will listen 127.0.0.1:5601.
 
 ** References
 
