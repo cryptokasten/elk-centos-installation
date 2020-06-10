@@ -1,7 +1,7 @@
-#+TITLE: Elasticsearch installation
+#+TITLE: ELK Centos installation
 #+OPTIONS: ^:nil
-#+PROPERTY: header-args:sh :session *shell elasticsearch-installation sh* :results silent raw
-#+PROPERTY: header-args:python :session *shell elasticsearch-installation python* :results silent raw
+#+PROPERTY: header-args:sh :session *shell elk-centos-installation sh* :results silent raw
+#+PROPERTY: header-args:python :session *shell elk-centos-installation python* :results silent raw
 
 ** System environment
 
@@ -47,6 +47,18 @@ sudo yum install --enablerepo=elasticsearch elasticsearch
 
 #+BEGIN_SRC sh
 systemctl start elasticsearch
+#+END_SRC
+
+** Install kibana
+
+#+BEGIN_SRC sh
+sudo yum install --enablerepo=elasticsearch kibana
+#+END_SRC
+
+** Start kibana service
+
+#+BEGIN_SRC sh
+systemctl start kibana
 #+END_SRC
 
 ** References
